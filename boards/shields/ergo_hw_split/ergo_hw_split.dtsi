@@ -8,11 +8,8 @@
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
-        
-        // La parte negra del diodo apunta a las columnas
         diode-direction = "row2col"; 
 
-        // Tus 4 pines de filas (022, 024, 100, 011)
         row-gpios
             = <&gpio0 22 GPIO_ACTIVE_HIGH>
             , <&gpio0 24 GPIO_ACTIVE_HIGH>
@@ -20,14 +17,13 @@
             , <&gpio0 11 GPIO_ACTIVE_HIGH>
             ;
 
-        // Tus 5 pines de columnas (002, 115, 113, 111, 010)
-        // Al ser row2col, las columnas necesitan la resistencia PULL_DOWN
+        // Invertimos el orden aquí para arreglar el efecto espejo del lado izquierdo
         col-gpios
-            = <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
     };
 
