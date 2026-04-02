@@ -1,0 +1,5 @@
+#include "ergo_hw_split.dtsi"
+
+&default_transform {
+    col-offset = <5>; // Desplaza 5 columnas para la mitad derecha
+};
