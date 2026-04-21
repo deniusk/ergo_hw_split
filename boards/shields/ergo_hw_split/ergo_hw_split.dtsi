@@ -17,7 +17,7 @@
             , <&gpio0 11 GPIO_ACTIVE_HIGH>
             ;
 
-        // Invertimos el orden aquí para arreglar el efecto espejo del lado izquierdo
+        // Este orden corrige el efecto espejo en la mano izquierda
         col-gpios
             = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
